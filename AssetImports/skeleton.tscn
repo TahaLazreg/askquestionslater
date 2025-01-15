@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://8q0y0jkmlaua"]
+
+[ext_resource type="PackedScene" uid="uid://bq2mcjsg81i37" path="res://AssetImports/Skeleton/Animated-Lowpoly-Skeleton/skeleton.fbx" id="1_dx5ui"]
+
+[node name="skeleton" instance=ExtResource("1_dx5ui")]
+
+[node name="Skeleton3D" parent="skeleton-skeleton" index="0"]
+bones/2/rotation = Quaternion(-9.76111e-08, 0.570478, 0.821313, -9.43283e-08)
+bones/2/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.706906, -0.120635, 0.696712, 0.0179928)
+bones/7/rotation = Quaternion(-0.0239758, -0.00650942, 0.207904, 0.977834)
+bones/8/rotation = Quaternion(-0.0351514, -0.00831083, 0.0776898, 0.996323)
+bones/9/rotation = Quaternion(-0.000804586, 0.0001895, 0.229258, 0.973365)
+bones/11/rotation = Quaternion(0.0338888, 0.00800006, -0.229614, 0.972659)
+bones/15/rotation = Quaternion(-0.672738, 0.181542, -0.717263, -0.000843734)
+bones/16/rotation = Quaternion(0.100911, 0.0641584, -0.276163, 0.953643)
+bones/17/rotation = Quaternion(-0.0685236, -0.000195244, -0.0789841, 0.994518)
+bones/22/rotation = Quaternion(0.176167, 0.0229208, 0.983491, 0.0344379)
+bones/22/scale = Vector3(1.00001, 0.999998, 0.999971)
+bones/23/rotation = Quaternion(-0.0485639, 0.0142058, 0.00223822, 0.998717)
+bones/23/scale = Vector3(1, 0.999985, 1.00002)
+bones/25/rotation = Quaternion(0.106398, 0.0285447, 0.993341, -0.0337327)
+bones/25/scale = Vector3(1.00001, 0.999992, 1.00003)
+bones/26/rotation = Quaternion(-0.0365719, 0.0633699, 0.00248838, 0.997317)
+bones/26/scale = Vector3(1, 1.00004, 0.999964)
+bones/28/position = Vector3(0.00210166, -0.000321554, 0.00375399)
+bones/30/position = Vector3(-0.00209934, -0.000321554, 0.00377812)
+bones/32/rotation = Quaternion(-0.0508225, 0, 0, 0.998708)
+bones/33/rotation = Quaternion(2.03191e-07, -0.100509, 0.994936, -1.13309e-07)
+bones/35/rotation = Quaternion(-0.0508225, 0, 0, 0.998708)
+bones/36/rotation = Quaternion(2.03191e-07, -0.100509, 0.994936, -1.13309e-07)
+bones/42/position = Vector3(0.00117224, -0.00519535, 0.00734668)
+bones/44/position = Vector3(-0.0020654, -0.00522196, 0.00734668)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "skeleton-skeleton|idle"
