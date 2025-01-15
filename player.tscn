@@ -35,6 +35,12 @@ script = ExtResource("1_dwod5")
 [node name="skeleton" parent="." instance=ExtResource("2_sc11j")]
 transform = Transform3D(-1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 0, -0.822145, 0)
 
+[node name="Guns" type="Node3D" parent="skeleton"]
+unique_name_in_owner = true
+transform = Transform3D(-0.769231, 0, 1.16151e-07, 0, 0.769231, 0, -1.16151e-07, 0, -0.769231, -0.368256, 0.702581, -5.56051e-08)
+
+[node name="Shotgun" parent="skeleton/Guns" instance=ExtResource("3_rjcbs")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gtwum")
 
@@ -60,11 +66,6 @@ wait_time = 0.7
 
 [node name="CoyoteTime" type="Timer" parent="."]
 wait_time = 0.2
-
-[node name="Guns" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460196, 0.0636129, 0)
-
-[node name="Shotgun" parent="Guns" instance=ExtResource("3_rjcbs")]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

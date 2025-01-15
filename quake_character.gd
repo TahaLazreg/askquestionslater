@@ -17,7 +17,7 @@ var tilt_limit = deg_to_rad(67)
 @onready var cam_pivot = %CamPivot
 var _camera_input_direction := Vector2.ZERO
 
-const DEAD_ZONE = 0.7;
+const DEAD_ZONE = 0.3;
 
 @onready var cam = %Camera3D;
 
@@ -43,8 +43,8 @@ func _physics_process(delta: float) -> void:
 	_camera_input_direction = Vector2.ZERO
 	
 	$skeleton.rotation.y = cam_pivot.rotation.y + PI
-	$Guns.rotation.y = cam_pivot.rotation.y + PI
-	$Guns.rotation.x = -cam_pivot.rotation.x
+	#%Guns.rotation.y = cam_pivot.rotation.y + PI
+	%Guns.rotation.x = cam_pivot.rotation.x
 	
 	# Get input
 	var input_dir := Input.get_vector("move_lft", "move_rgt", "move_fwd", "move_bck")
@@ -95,9 +95,9 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity + add_speed * curr_movement;
 	
 	if Input.is_action_pressed("shoot"):
-		$Guns.get_child(0).process_shot(self, forward);
+		%Guns.get_child(0).process_shot(self, forward);
 	
-	$UI.get_node("BulletCounter").text = str($Guns.get_child(0).bullets) + " / " + str($Guns.get_child(0).max_bullets)
+	$UI.get_node("BulletCounter").text = str(%Guns.get_child(0).bullets) + " / " + str(%Guns.get_child(0).max_bullets)
 	
 	move_and_slide()
 

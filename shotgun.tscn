@@ -12,69 +12,62 @@ script = ExtResource("1_4lhtx")
 [node name="ShotCooldown" type="Timer" parent="."]
 
 [node name="BulletSpread" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00126153, 0, -0.000196517)
 
 [node name="TopRight" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, 0.00759612, -0.0868241, 0, 0.996195, 0.0871557, 0.0871557, -0.0868241, 0.992404, -0.1, 0.1, 0)
+transform = Transform3D(0.996195, 0.00759612, -0.0868241, 0, 0.996195, 0.0871557, 0.0871557, -0.0868241, 0.992404, -0.071, 0.071, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/TopRight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="TopLeft" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, -0.00759612, 0.0868241, 0, 0.996195, 0.0871557, -0.0871557, -0.0868241, 0.992404, 0.1, 0.1, 0)
+transform = Transform3D(0.996195, -0.00759612, 0.0868241, 0, 0.996195, 0.0871557, -0.0871557, -0.0868241, 0.992404, 0.071, 0.071, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/TopLeft"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="BotRight" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, -0.00759612, -0.0868241, 0, 0.996195, -0.0871557, 0.0871557, 0.0868241, 0.992404, -0.1, -0.1, 0)
+transform = Transform3D(0.996195, -0.00759612, -0.0868241, 0, 0.996195, -0.0871557, 0.0871557, 0.0868241, 0.992404, -0.071, -0.071, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/BotRight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="BotLeft" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, 0.00759612, 0.0868241, 0, 0.996195, -0.0871557, -0.0871557, 0.0868241, 0.992404, 0.1, -0.1, 0)
+transform = Transform3D(0.996195, 0.00759612, 0.0868241, 0, 0.996195, -0.0871557, -0.0871557, 0.0868241, 0.992404, 0.071, -0.071, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/BotLeft"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="Top" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0.12, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/Top"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="Left" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 0.101, 0, 0)
+transform = Transform3D(0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 0.12, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/Left"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="Right" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, -0.099, 0, 0)
+transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, -0.12, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/Right"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [node name="Bot" type="Node3D" parent="BulletSpread"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, -0.12, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/Bot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_4uufo")
 
 [connection signal="timeout" from="ShotCooldown" to="." method="_on_shot_cooldown_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://5sibinfv2aum"]
+[gd_scene load_steps=19 format=3 uid="uid://5sibinfv2aum"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hgain"]
 [ext_resource type="PackedScene" uid="uid://b410rsvjdm1h5" path="res://player.tscn" id="2_g7p1e"]
+[ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://TempEnemy.tscn" id="3_6w7cr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jcidh"]
 size = Vector3(50, 1, 50)
@@ -227,3 +228,8 @@ light_energy = 3.98
 spot_range = 52.559
 spot_angle = 57.73
 spot_angle_attenuation = 0.170755
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="TempEnemy" parent="Enemies" instance=ExtResource("3_6w7cr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.4553, 7.20321, 17.1515)
