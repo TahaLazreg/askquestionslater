@@ -41,7 +41,11 @@ func _physics_process(delta: float) -> void:
 	cam_pivot.rotation.x = clamp(cam_pivot.rotation.x, -tilt_limit, tilt_limit)
 	cam_pivot.rotation.y -= _camera_input_direction.x * delta
 	_camera_input_direction = Vector2.ZERO
-
+	
+	$skeleton.rotation.y = cam_pivot.rotation.y + PI
+	$Guns.rotation.y = cam_pivot.rotation.y + PI
+	$Guns.rotation.x = -cam_pivot.rotation.x
+	
 	# Get input
 	var input_dir := Input.get_vector("move_lft", "move_rgt", "move_fwd", "move_bck")
 	var forward = cam_pivot.transform.basis.z.normalized()
@@ -79,11 +83,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and can_jump and not just_jumped:
 		velocity.y += JUMP_VELOCITY
 		just_jumped = true
-		print("jump")
 		
 	# Dash
 	if Input.is_action_just_pressed("dash") and can_dash and (velocity.length() > 12 or not is_on_floor()):
-		print("dash")
 		var dir_2D: Vector3 = -forward
 		dir_2D.y = 0
 		velocity += dir_2D * DASH_IMPULSE;
@@ -92,7 +94,6 @@ func _physics_process(delta: float) -> void:
 	# Movement - Literally just a copy paste from quake lmao
 	velocity = velocity + add_speed * curr_movement;
 	
-	# TODO pressed vs just pressed
 	if Input.is_action_pressed("shoot"):
 		$Guns.get_child(0).process_shot(self, forward);
 	
@@ -112,5 +113,10 @@ func apply_friction () -> void:
 
 
 func _on_coyote_time_timeout() -> void:
-	print("coyote done")
+	#print("coyote done")
 	can_jump = false
+
+
+func _on_death() -> void:
+	# TODO show death screen, do all the little effects
+	pass # Replace with function body.

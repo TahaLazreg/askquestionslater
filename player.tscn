@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b410rsvjdm1h5"]
+[gd_scene load_steps=12 format=3 uid="uid://b410rsvjdm1h5"]
 
 [ext_resource type="Script" path="res://quake_character.gd" id="1_dwod5"]
 [ext_resource type="PackedScene" uid="uid://8q0y0jkmlaua" path="res://AssetImports/skeleton.tscn" id="2_sc11j"]
 [ext_resource type="PackedScene" uid="uid://501efyo6yit4" path="res://shotgun.tscn" id="3_rjcbs"]
+[ext_resource type="PackedScene" uid="uid://dv825sqfrbv4x" path="res://health.tscn" id="4_7dryh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtwum"]
 
@@ -21,12 +22,18 @@ material = SubResource("StandardMaterial3D_rx2a4")
 font_size = 36
 font_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0oeex"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12129, 0)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_dwod5")
 
 [node name="skeleton" parent="." instance=ExtResource("2_sc11j")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.822145, 0)
+transform = Transform3D(-1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 0, -0.822145, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gtwum")
@@ -41,10 +48,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.902585, 0.430511, 0, -0.430511, 0.902585, 0, 0, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460847, 0.00205207, -0.000340462)
 shape = SubResource("SphereShape3D_bioyd")
 spring_length = 5.0
 
-[node name="Camera3D" type="Camera3D" parent="CamPivot/SpringArm3D"]
+[node name="Camera" type="Camera3D" parent="CamPivot/SpringArm3D"]
 unique_name_in_owner = true
 
 [node name="DashCooldown" type="Timer" parent="."]
@@ -53,7 +61,8 @@ wait_time = 0.7
 [node name="CoyoteTime" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="Guns" type="Node" parent="."]
+[node name="Guns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460196, 0.0636129, 0)
 
 [node name="Shotgun" parent="Guns" instance=ExtResource("3_rjcbs")]
 
@@ -79,5 +88,25 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_fbqnw")
 language = "English"
 
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -46.0
+offset_right = 23.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+label_settings = SubResource("LabelSettings_0oeex")
+language = "en"
+
+[node name="Health" parent="." instance=ExtResource("4_7dryh")]
+
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]
+[connection signal="on_death" from="Health" to="." method="_on_death"]

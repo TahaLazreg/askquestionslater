@@ -2,6 +2,8 @@ extends Node3D
 
 const SHOT_IMPULSE = 20;
 
+const bullet = preload("res://bullet.tscn")
+
 @export var bullets = 5;
 @export var max_bullets = 5;
 @export var shot_cooldown = 0.35;
@@ -22,6 +24,12 @@ func process_shot(char: CharacterBody3D, forward: Vector3) -> void:
 	bullets -= 1;
 	can_shoot = false;
 	$ShotCooldown.start(shot_cooldown)
+	
+	for spawn_loc: Node3D in $BulletSpread.get_children():
+		var bul_inst = bullet.instantiate();
+		get_tree().root.add_child(bul_inst)
+		bul_inst.global_position = spawn_loc.global_position;
+		bul_inst.global_rotation = spawn_loc.global_rotation;
 
 
 func _on_shot_cooldown_timeout() -> void:
