@@ -1,11 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://b410rsvjdm1h5"]
 
-[ext_resource type="Script" path="res://quake_character.gd" id="1_dwod5"]
+[ext_resource type="Script" path="res://player/quake_character.gd" id="1_dwod5"]
 [ext_resource type="PackedScene" uid="uid://8q0y0jkmlaua" path="res://AssetImports/skeleton.tscn" id="2_sc11j"]
-[ext_resource type="PackedScene" uid="uid://501efyo6yit4" path="res://shotgun.tscn" id="3_rjcbs"]
+[ext_resource type="PackedScene" uid="uid://501efyo6yit4" path="res://Guns/shotgun.tscn" id="3_rjcbs"]
 [ext_resource type="PackedScene" uid="uid://dv825sqfrbv4x" path="res://health.tscn" id="4_7dryh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtwum"]
+height = 1.28028
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_art82"]
 
@@ -33,15 +34,16 @@ collision_mask = 5
 script = ExtResource("1_dwod5")
 
 [node name="skeleton" parent="." instance=ExtResource("2_sc11j")]
-transform = Transform3D(-1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 0, -0.822145, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.822145, 0)
 
 [node name="Guns" type="Node3D" parent="skeleton"]
 unique_name_in_owner = true
-transform = Transform3D(-0.769231, 0, 1.16151e-07, 0, 0.769231, 0, -1.16151e-07, 0, -0.769231, -0.368256, 0.702581, -5.56051e-08)
+transform = Transform3D(-0.769231, 0, 1.16151e-07, 0, 0.769231, 0, -1.16151e-07, 0, -0.769231, -0.461, 0.873992, 0)
 
 [node name="Shotgun" parent="skeleton/Guns" instance=ExtResource("3_rjcbs")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.228032, 0)
 shape = SubResource("CapsuleShape3D_gtwum")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

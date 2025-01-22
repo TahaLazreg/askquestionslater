@@ -111,3 +111,7 @@ locale/locale_filter_mode=0
 
 3d/run_on_separate_thread=true
 3d/default_gravity=20.0
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

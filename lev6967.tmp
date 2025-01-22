@@ -53,6 +53,10 @@ size = Vector3(25, 1, 30)
 [node name="Level" type="Node3D"]
 script = ExtResource("1_hgain")
 
+[node name="player" parent="." instance=ExtResource("2_g7p1e")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9382, 2.23828, -20.2922)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 28.7862, 0)
 shadow_enabled = true
@@ -229,8 +233,4 @@ spot_angle_attenuation = 0.170755
 [node name="Enemies" type="Node" parent="."]
 
 [node name="TempEnemy" parent="Enemies" instance=ExtResource("3_6w7cr")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.56838, 1.9301, 16.2574)
-
-[node name="player" parent="." instance=ExtResource("2_g7p1e")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9564, 2.23828, -20.2746)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.4553, 7.20321, 17.1515)

@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 const Q_MAX_SPEED = 50;
-const Q_MAX_ACCEL = 7;
+const Q_MAX_ACCEL = 6;
 const JUMP_VELOCITY = 9.0
 
-const DASH_IMPULSE = 25;
+const DASH_IMPULSE = 23;
 
 var can_jump = false
 var just_jumped = false
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		if ($CoyoteTime.is_stopped()):
-			print("start timer")
+			#print("start timer")
 			$CoyoteTime.start()
 		velocity += get_gravity() * delta
 	else:
@@ -94,6 +94,7 @@ func _physics_process(delta: float) -> void:
 	# Movement - Literally just a copy paste from quake lmao
 	velocity = velocity + add_speed * curr_movement;
 	
+	# TODO should we be able to shoot backwards?
 	if Input.is_action_pressed("shoot"):
 		%Guns.get_child(0).process_shot(self, forward);
 	
@@ -119,4 +120,5 @@ func _on_coyote_time_timeout() -> void:
 
 func _on_death() -> void:
 	# TODO show death screen, do all the little effects
-	pass # Replace with function body.
+	#print("u died lmao")
+	pass

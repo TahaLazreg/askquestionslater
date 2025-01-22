@@ -1,0 +1,40 @@
+extends CharacterBody3D
+
+const bullet = preload("res://Enemies/enemy_bullet.tscn") # Replace with enemy bullet
+
+@onready var player = %player
+
+const VISION_ANGLE = deg_to_rad(60);
+const VISION_RANGE = 15;
+var can_shoot = false;
+
+func _ready() -> void:
+	$ShootTimer.start()
+
+func _physics_process(delta: float) -> void:
+	var player_dist = (player.global_position - global_position).normalized()
+	var forward = transform.basis.z.normalized()
+	var angleBetween = acos(player_dist.dot(forward))
+	print(angleBetween)
+	if (angleBetween < VISION_ANGLE/2 and global_position.distance_squared_to(player.global_position) < VISION_RANGE * VISION_RANGE):
+		can_shoot = true;
+		print("found you heheheh")
+		
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	move_and_slide()
+
+func _on_death() -> void:
+	queue_free()
+
+
+func _on_shoot_timer_timeout() -> void:
+	if !can_shoot:
+		return
+	
+	var bul_inst = bullet.instantiate()
+	get_tree().root.add_child(bul_inst)
+	bul_inst.global_position = global_position;
+	bul_inst.global_rotation = global_rotation;
+	$ShootTimer.start()

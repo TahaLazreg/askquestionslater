@@ -39,12 +39,16 @@ func process_menu_call() :
 	if (not inMenu):
 		# TODO proper pause
 		get_node("player").set_physics_process(false);
+		for enemy in get_node("Enemies").get_children():
+			enemy.set_physics_process(false);
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		menu.visible = true;
 		inMenu = true;
 	else:
 		# TODO proper pause
 		get_node("player").set_physics_process(true);
+		for enemy in get_node("Enemies").get_children():
+			enemy.set_physics_process(true);
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		menu.visible = false;
 		inMenu = false;

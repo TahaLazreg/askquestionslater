@@ -2,7 +2,7 @@ extends Node3D
 
 const SHOT_IMPULSE = 20;
 
-const bullet = preload("res://bullet.tscn")
+const bullet = preload("res://Guns/bullet.tscn")
 
 @export var bullets = 5;
 @export var max_bullets = 5;
@@ -10,7 +10,7 @@ const bullet = preload("res://bullet.tscn")
 var can_shoot = true
 
 ## Shoot - this shot cancels a good chunk of momentum and throws you back a bunch
-func process_shot(char: CharacterBody3D, forward: Vector3) -> void:
+func process_shot(char: CharacterBody3D, forward: Vector3, backwards = false) -> void:
 	if (not can_shoot or bullets <= 0):
 		return
 	
@@ -19,7 +19,10 @@ func process_shot(char: CharacterBody3D, forward: Vector3) -> void:
 	dir_2D.y *= 0.7
 	# Cancel some momentum so the gun can be used to stop moving so fast
 	char.velocity *= 0.6
-	char.velocity += dir_2D * SHOT_IMPULSE;
+	if backwards:
+		char.velocity -= dir_2D * SHOT_IMPULSE;
+	else:
+		char.velocity += dir_2D * SHOT_IMPULSE;
 	
 	bullets -= 1;
 	can_shoot = false;
@@ -30,6 +33,8 @@ func process_shot(char: CharacterBody3D, forward: Vector3) -> void:
 		get_tree().root.add_child(bul_inst)
 		bul_inst.global_position = spawn_loc.global_position;
 		bul_inst.global_rotation = spawn_loc.global_rotation;
+		if backwards:
+			bul_inst.global_rotation.y += deg_to_rad(180)
 
 
 func _on_shot_cooldown_timeout() -> void:

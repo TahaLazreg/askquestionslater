@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdm2vd2y3k16v"]
 
-[ext_resource type="Script" path="res://bullet_body.gd" id="1_xtphv"]
+[ext_resource type="Script" path="res://Guns/bullet_body.gd" id="1_xxq7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxdbs"]
 
@@ -15,7 +15,7 @@ data = PackedVector3Array(0, 0.1, 0, 0, 0.1, 0, 0, 0.0992, -0.0087, 0, 0.1, 0, -
 [node name="EnemyBullet" type="Area3D"]
 collision_layer = 16
 collision_mask = 3
-script = ExtResource("1_xtphv")
+script = ExtResource("1_xxq7t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
