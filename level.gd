@@ -7,7 +7,7 @@ extends Node3D
 
 var menu = preload("res://esc_menu.tscn").instantiate();
 
-var inFocus: bool = false;
+var inFocus: bool = true;
 var inMenu: bool = false;
 
 func _ready() -> void:
@@ -19,17 +19,16 @@ func _ready() -> void:
 	menu.connect("EscapeMenu", process_menu_call)
 	menu.connect("ReloadLevel", restart_level)
 	menu.connect("ExitGame", exit_game)
-	
-	
+
 func on_focus_change() -> void:
 	if (inMenu):
 		return
 	
+	inFocus = not inFocus
 	if (inFocus):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	inFocus = not inFocus
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("esc_menu")):

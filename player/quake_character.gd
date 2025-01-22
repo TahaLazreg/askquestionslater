@@ -19,7 +19,7 @@ var _camera_input_direction := Vector2.ZERO
 
 const DEAD_ZONE = 0.3;
 
-@onready var cam = %Camera3D;
+@onready var cam = %Camera;
 
 func _input(event: InputEvent) -> void:
 	var is_camera_motion := (
@@ -96,7 +96,10 @@ func _physics_process(delta: float) -> void:
 	
 	# TODO should we be able to shoot backwards?
 	if Input.is_action_pressed("shoot"):
-		%Guns.get_child(0).process_shot(self, forward);
+		%Guns.get_child(0).process_shot(self, forward, false);
+	elif Input.is_action_pressed("shoot_back"):
+		%Guns.get_child(0).process_shot(self, forward, true);
+		
 	
 	$UI.get_node("BulletCounter").text = str(%Guns.get_child(0).bullets) + " / " + str(%Guns.get_child(0).max_bullets)
 	
