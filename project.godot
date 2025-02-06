@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="random-third-person-game"
-run/main_scene="res://level.tscn"
+run/main_scene="res://GameFiles/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 
 [editor_plugins]
 
@@ -103,6 +109,16 @@ shoot_back={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(248, 20),"global_position":Vector2(257, 66),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+next_gun={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(344, 28),"global_position":Vector2(353, 74),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+prev_gun={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(178, 18),"global_position":Vector2(187, 64),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [internationalization]
 
@@ -125,3 +141,4 @@ locale/locale_filter_mode=0
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+occlusion_culling/use_occlusion_culling=true

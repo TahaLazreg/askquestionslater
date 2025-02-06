@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cghmqhxgf4o83"]
+
+[ext_resource type="Script" path="res://GameFiles/Guns/gattling.gd" id="1_hmpyh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cr34k"]
+radius = 0.05
+height = 0.2
+
+[node name="Gattling" type="Node3D"]
+script = ExtResource("1_hmpyh")
+
+[node name="ShotCooldown" type="Timer" parent="."]
+
+[node name="BulletSpread" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00126153, 0, -0.000196517)
+
+[node name="TopRight" type="Node3D" parent="BulletSpread"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpread/TopRight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_cr34k")
+
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_shot_cooldown_timeout"]

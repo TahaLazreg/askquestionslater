@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDSolidClass" load_steps=3 format=3 uid="uid://c730vq157n8am"]
+
+[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_ilo6s"]
+[ext_resource type="Script" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="2_w7nx2"]
+
+[resource]
+script = ExtResource("1_ilo6s")
+spawn_type = 2
+origin_type = 4
+build_visuals = true
+use_in_baked_light = true
+shadow_casting_setting = 1
+build_occlusion = false
+render_layers = 1
+collision_shape_type = 1
+collision_layer = 1
+collision_mask = 1
+collision_priority = 1.0
+collision_shape_margin = 0.04
+add_textures_metadata = false
+add_vertex_metadata = false
+add_face_position_metadata = false
+add_face_normal_metadata = false
+add_collision_shape_face_range_metadata = false
+script_class = ExtResource("2_w7nx2")
+classname = "BaseEnemy"
+description = "Basic enemy for first few maps"
+func_godot_internal = false
+base_classes = Array[Resource]([ExtResource("2_w7nx2")])
+class_properties = {}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"color": Color(0.877749, 0.097138, 2.69532e-06, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = "CharacterBody3D"
+name_property = ""
