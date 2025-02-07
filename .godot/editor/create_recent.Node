@@ -1,0 +1,14 @@
+FuncGodotMap
+Node3D
+MeshInstance3D
+Label
+Marker3D
+VBoxContainer
+Button
+HBoxContainer
+DirectionalLight3D
+Timer
+Area3D
+Node
+CharacterBody3D
+Control
