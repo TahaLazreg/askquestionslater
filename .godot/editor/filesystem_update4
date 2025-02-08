@@ -1,8 +1,7 @@
-res://GameFiles/Levels/level_1_1.tscn
+res://GameFiles/Levels/level.tscn
 res://GameFiles/Enemies/base_enemy.tres
 res://trenchbroom_entity_cfg.tres
 res://Assets/textures/bars.tres
-res://GameFiles/Levels/level.tscn
 res://GameFiles/Enemies/enemy_bullet.tscn
 res://AssetImports/skeleton.tscn
 res://GameFiles/Guns/shotgun.tscn
@@ -13,3 +12,4 @@ res://GameFiles/player/player.tscn
 res://GameFiles/Levels/test_trenchbroom_level.tscn
 res://GameFiles/Guns/tg_teal.tscn
 res://GameFiles/main_menu.tscn
+res://GameFiles/Levels/level_1_1.tscn
