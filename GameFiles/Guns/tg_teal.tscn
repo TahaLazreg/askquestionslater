@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr6qw3wtq27k1"]
 
-[ext_resource type="Script" uid="uid://b2tllm48rvuhr" path="res://GameFiles/Guns/tg_teal.gd" id="1_xxrs4"]
+[ext_resource type="Script" uid="uid://cwy0fixun1jh8" path="res://GameFiles/Guns/dowshot_gun.gd" id="1_p0vs4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_paoq2"]
 radius = 0.05
 height = 0.2
 
 [node name="TG TEAL" type="Node3D"]
-script = ExtResource("1_xxrs4")
+script = ExtResource("1_p0vs4")
 
 [node name="ShotCooldown" type="Timer" parent="."]
 

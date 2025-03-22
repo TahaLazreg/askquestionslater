@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cghmqhxgf4o83"]
 
-[ext_resource type="Script" uid="uid://cso42tcfwdaac" path="res://GameFiles/Guns/gattling.gd" id="1_hmpyh"]
+[ext_resource type="Script" uid="uid://bstoxmp5d000y" path="res://GameFiles/Guns/backshot_gun.gd" id="1_cyjwr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cr34k"]
 radius = 0.05
 height = 0.2
 
 [node name="Gattling" type="Node3D"]
-script = ExtResource("1_hmpyh")
+script = ExtResource("1_cyjwr")
 
 [node name="ShotCooldown" type="Timer" parent="."]
 

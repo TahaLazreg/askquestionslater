@@ -62,6 +62,10 @@ func process_menu_call() :
 			enemy.set_physics_process(true);
 		
 func restart_level():
+	var level = get_tree().get_first_node_in_group("Level")
+	for child in get_tree().root.get_children():
+		if(child != level): child.queue_free();
+		
 	get_tree().reload_current_scene()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

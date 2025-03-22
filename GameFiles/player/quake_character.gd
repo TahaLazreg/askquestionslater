@@ -20,8 +20,8 @@ var tilt_limit = deg_to_rad(67)
 
 var no_shoot_frame_one = 1
 
-@export_range(0.0, 1.0) var mouse_sens_h := 0.025 * 5
-@export_range(0.0, 1.0) var mouse_sens_v := 0.05
+@export_range(0.0, 1.0) var mouse_sens_h := 0.125
+@export_range(0.0, 1.0) var mouse_sens_v := 0.13
 @onready var cam_pivot = %CamPivot
 var _camera_input_direction := Vector2.ZERO
 
@@ -159,8 +159,8 @@ func _on_coyote_time_timeout() -> void:
 func _on_death() -> void:
 	# TODO show death screen, do all the little effects
 	print("u died lmao")
+	$Health.heal_dmg(99);
 	get_tree().call_group("Esc Menu", "_on_restart_pressed");
-	$Health.reset_hp();
 
 
 func _on_jump_grace_timeout() -> void:

@@ -289,7 +289,7 @@ points = PackedVector3Array(205.5, 18.3, -94.6, 205.5, 17.5, -95, 207, 17.5, -95
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b1pid"]
 points = PackedVector3Array(205.5, 21.4091, -94.9545, 205.5, 16.5, -95.5, 207, 16.5, -95.5, 207, 21.4091, -94.9545, 205.5, 19.5, -94, 207, 19.5, -94)
 
-[node name="Level1-1" type="Node3D"]
+[node name="Level1-1" type="Node3D" groups=["Level"]]
 script = ExtResource("1_7y1yp")
 
 [node name="FuncGodotMap" type="Node3D" parent="."]

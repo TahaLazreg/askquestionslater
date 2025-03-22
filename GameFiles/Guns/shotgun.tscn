@@ -1,13 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://501efyo6yit4"]
 
-[ext_resource type="Script" uid="uid://2eerh4d3hgas" path="res://GameFiles/Guns/shotgun.gd" id="1_4lhtx"]
+[ext_resource type="Script" uid="uid://cwy0fixun1jh8" path="res://GameFiles/Guns/dowshot_gun.gd" id="1_cwsof"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4uufo"]
 radius = 0.05
 height = 0.2
 
 [node name="Shotgun" type="Node3D"]
-script = ExtResource("1_4lhtx")
+script = ExtResource("1_cwsof")
+SHOT_IMPULSE = 17
+bullets = 5
+max_bullets = 5
+shot_cooldown = 0.45
 
 [node name="ShotCooldown" type="Timer" parent="."]
 
