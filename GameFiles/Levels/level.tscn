@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://5sibinfv2aum"]
 
-[ext_resource type="Script" path="res://GameFiles/Levels/level.gd" id="1_hgain"]
+[ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_hgain"]
 [ext_resource type="PackedScene" uid="uid://b410rsvjdm1h5" path="res://GameFiles/player/player.tscn" id="2_g7p1e"]
 [ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://GameFiles/Enemies/BaseEnemy.tscn" id="3_6w7cr"]
 

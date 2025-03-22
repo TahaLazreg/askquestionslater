@@ -1,3 +1,4 @@
+Node
 FuncGodotMap
 Node3D
 MeshInstance3D
@@ -9,6 +10,5 @@ HBoxContainer
 DirectionalLight3D
 Timer
 Area3D
-Node
 CharacterBody3D
 Control

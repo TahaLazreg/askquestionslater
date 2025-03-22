@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="QuakeMapFile" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/import/quake_map_file.gd" id="1_bha8x"]
+[ext_resource type="Script" uid="uid://b17nygfluac65" path="res://addons/func_godot/src/import/quake_map_file.gd" id="1_bha8x"]
 
 [resource]
 script = ExtResource("1_bha8x")
-revision = 1
+revision = 2
 map_data = "// Game: AskQuestionsLater
 // Format: Valve
 // entity 0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://501efyo6yit4"]
 
-[ext_resource type="Script" path="res://GameFiles/Guns/shotgun.gd" id="1_4lhtx"]
+[ext_resource type="Script" uid="uid://2eerh4d3hgas" path="res://GameFiles/Guns/shotgun.gd" id="1_4lhtx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4uufo"]
 radius = 0.05

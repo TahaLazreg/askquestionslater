@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://b410rsvjdm1h5"]
 
-[ext_resource type="Script" path="res://GameFiles/player/quake_character.gd" id="1_dwod5"]
+[ext_resource type="Script" uid="uid://c6yfui7xy23n0" path="res://GameFiles/player/quake_character.gd" id="1_dwod5"]
 [ext_resource type="PackedScene" uid="uid://8q0y0jkmlaua" path="res://AssetImports/skeleton.tscn" id="2_sc11j"]
 [ext_resource type="PackedScene" uid="uid://501efyo6yit4" path="res://GameFiles/Guns/shotgun.tscn" id="3_rjcbs"]
 [ext_resource type="PackedScene" uid="uid://dv825sqfrbv4x" path="res://GameFiles/health.tscn" id="4_7dryh"]
@@ -34,7 +34,6 @@ font_size = 36
 font_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12129, 0)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_dwod5")

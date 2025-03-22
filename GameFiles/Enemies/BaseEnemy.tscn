@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcldpre5a6bu0"]
 
 [ext_resource type="PackedScene" uid="uid://dv825sqfrbv4x" path="res://GameFiles/health.tscn" id="1_5dgap"]
-[ext_resource type="Script" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="1_68xbx"]
+[ext_resource type="Script" uid="uid://dnv8m8ng6f467" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="1_68xbx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mfiwl"]
 

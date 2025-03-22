@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=4 format=3 uid="uid://m1ihnjq2dywr"]
 
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_pl7iu"]
-[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_ta8v8"]
+[ext_resource type="Script" uid="uid://cstjd5dqbkeut" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_ta8v8"]
 [ext_resource type="Resource" uid="uid://c730vq157n8am" path="res://GameFiles/Enemies/base_enemy.tres" id="2_qtpx1"]
 
 [resource]

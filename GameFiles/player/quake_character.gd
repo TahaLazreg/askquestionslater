@@ -158,8 +158,9 @@ func _on_coyote_time_timeout() -> void:
 
 func _on_death() -> void:
 	# TODO show death screen, do all the little effects
-	#print("u died lmao")
-	pass
+	print("u died lmao")
+	get_tree().call_group("Esc Menu", "_on_restart_pressed");
+	$Health.reset_hp();
 
 
 func _on_jump_grace_timeout() -> void:

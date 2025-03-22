@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDSolidClass" load_steps=3 format=3 uid="uid://c730vq157n8am"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_ilo6s"]
-[ext_resource type="Script" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="2_w7nx2"]
+[ext_resource type="Script" uid="uid://bfepfdphn67ss" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_ilo6s"]
+[ext_resource type="Script" uid="uid://dnv8m8ng6f467" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="2_w7nx2"]
 
 [resource]
 script = ExtResource("1_ilo6s")

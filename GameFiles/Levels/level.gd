@@ -48,6 +48,7 @@ func process_menu_call() :
 			return
 		for enemy in get_node("Enemies").get_children():
 			enemy.set_physics_process(false);
+			enemy.can_shoot = false;
 	else:
 		# TODO proper pause
 		%Player.set_physics_process(true);

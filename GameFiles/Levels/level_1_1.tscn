@@ -1,12 +1,13 @@
-[gd_scene load_steps=89 format=4 uid="uid://bn3ux4uqgv7ip"]
+[gd_scene load_steps=90 format=4 uid="uid://bn3ux4uqgv7ip"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_1fvkv"]
-[ext_resource type="Script" path="res://GameFiles/Levels/level.gd" id="1_7y1yp"]
+[ext_resource type="Script" uid="uid://bf1dmhwua2m67" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_1fvkv"]
+[ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_7y1yp"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_87ayr"]
 [ext_resource type="Material" uid="uid://685awixgfi6w" path="res://Assets/textures/dirt.tres" id="3_0sle8"]
 [ext_resource type="PackedScene" uid="uid://b410rsvjdm1h5" path="res://GameFiles/player/player.tscn" id="4_fgefm"]
 [ext_resource type="Material" uid="uid://dffj6adhk5g2" path="res://Assets/textures/plain-wall.tres" id="5_h8wn8"]
 [ext_resource type="Material" uid="uid://bfdnyn3gu81wi" path="res://Assets/textures/bars.tres" id="5_sw5jc"]
+[ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://GameFiles/Enemies/BaseEnemy.tscn" id="8_hog1k"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dioh1"]
 _surfaces = [{
@@ -548,3 +549,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.8306, 1.40282, -6.36122)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.437642, 0.263789, -0.859584, -0.663211, 0.550824, 0.5067, 0.607141, 0.791839, -0.0661155, 0, 9.52163, 0)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="BaseEnemy" parent="Enemies" instance=ExtResource("8_hog1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0857, 13.5789, -91.3805)

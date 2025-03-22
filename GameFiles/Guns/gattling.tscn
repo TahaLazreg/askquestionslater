@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cghmqhxgf4o83"]
 
-[ext_resource type="Script" path="res://GameFiles/Guns/gattling.gd" id="1_hmpyh"]
+[ext_resource type="Script" uid="uid://cso42tcfwdaac" path="res://GameFiles/Guns/gattling.gd" id="1_hmpyh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cr34k"]
 radius = 0.05
