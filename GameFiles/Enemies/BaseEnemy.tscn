@@ -29,6 +29,12 @@ shape = SubResource("CapsuleShape3D_tsumw")
 [node name="ShootTimer" type="Timer" parent="."]
 
 [node name="Health" parent="." instance=ExtResource("1_5dgap")]
+MAX_HP = 1
+curr_hp = 1
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390204, 0)
+target_position = Vector3(0, 0, 15)
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="on_death" from="Health" to="." method="_on_death"]

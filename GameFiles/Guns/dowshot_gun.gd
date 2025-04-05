@@ -4,7 +4,7 @@ extends Node3D
 
 const bullet = preload("res://GameFiles/Guns/bullet.tscn")
 
-@export var bullets = 2;
+@export var curr_bullets = 2;
 @export var max_bullets = 2;
 @export var shot_cooldown: float = 1;
 
@@ -15,7 +15,7 @@ var can_shoot = true
 
 ## Shoot - this shot cancels a good chunk of momentum and throws you back a bunch
 func process_shot(char: CharacterBody3D, forward: Vector3, backwards = false) -> void:
-	if (not can_shoot or bullets <= 0):
+	if (not can_shoot or curr_bullets <= 0):
 		return
 	
 	var dir_2D: Vector3 = forward
@@ -29,7 +29,7 @@ func process_shot(char: CharacterBody3D, forward: Vector3, backwards = false) ->
 	dir_2D.y *= dir_mult
 	char.velocity += dir_2D * SHOT_IMPULSE;
 	
-	bullets -= 1;
+	curr_bullets -= 1;
 	can_shoot = false;
 	$ShotCooldown.start(shot_cooldown)
 	
@@ -40,6 +40,11 @@ func process_shot(char: CharacterBody3D, forward: Vector3, backwards = false) ->
 		bul_inst.global_rotation = spawn_loc.global_rotation;
 		if backwards:
 			bul_inst.global_rotation = Vector3(deg_to_rad(90), 0, 0)
+
+func add_bullets(nb_bul) -> void:
+	curr_bullets += nb_bul
+	if (curr_bullets > max_bullets):
+		curr_bullets = max_bullets
 
 # TODO replace cooldown with animation markup
 func _on_shot_cooldown_timeout() -> void:

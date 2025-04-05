@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 const Q_MAX_SPEED = 50;
 const Q_MAX_ACCEL = 6;
@@ -54,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	cam_pivot.rotation.y -= _camera_input_direction.x * delta
 	_camera_input_direction = Vector2.ZERO
 	
-	$skeleton.rotation.y = cam_pivot.rotation.y + PI
+	$Body.rotation.y = cam_pivot.rotation.y + PI
 	#%Guns.rotation.y = cam_pivot.rotation.y + PI
 	%Guns.rotation.x = cam_pivot.rotation.x
 	
@@ -136,7 +137,7 @@ func _physics_process(delta: float) -> void:
 		%Guns/Weapons.get_child(curr_gun).process_shot(self, forward, true);
 		
 	
-	$UI.get_node("BulletCounter").text = str(%Guns/Weapons.get_child(curr_gun).bullets) + " / " + str(%Guns/Weapons.get_child(curr_gun).max_bullets)
+	$UI.get_node("BulletCounter").text = str(%Guns/Weapons.get_child(curr_gun).curr_bullets) + " / " + str(%Guns/Weapons.get_child(curr_gun).max_bullets)
 	
 	move_and_slide()
 

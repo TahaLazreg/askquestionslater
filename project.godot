@@ -136,6 +136,7 @@ locale/locale_filter_mode=0
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="player_bullet"
 3d_physics/layer_5="enemy_bullet"
+3d_physics/layer_6="ammo_pickup_shells"
 
 [physics]
 

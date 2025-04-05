@@ -9,7 +9,6 @@ height = 0.2
 [node name="Shotgun" type="Node3D"]
 script = ExtResource("1_cwsof")
 SHOT_IMPULSE = 17
-bullets = 5
 max_bullets = 5
 shot_cooldown = 0.45
 
