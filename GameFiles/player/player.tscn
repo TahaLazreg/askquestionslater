@@ -17,7 +17,8 @@ font_size = 24
 depth = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gtwum"]
-height = 1.28028
+radius = 0.25
+height = 1.75554
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_art82"]
 
@@ -40,7 +41,7 @@ collision_mask = 5
 script = ExtResource("1_dwod5")
 
 [node name="Body" parent="." instance=ExtResource("2_sc11j")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.822145, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1.5, 0, 1.50996e-07, 0, -1, 0, -0.822145, 0)
 
 [node name="Guns" type="Node3D" parent="Body"]
 unique_name_in_owner = true
@@ -56,6 +57,7 @@ mesh = SubResource("TextMesh_f3yp2")
 
 [node name="Shotgun" parent="Body/Guns/Weapons" instance=ExtResource("3_rjcbs")]
 transform = Transform3D(1, 0, -2.71051e-20, 0, 1, 0, 2.71051e-20, 0, 1, 0, 0, 0)
+curr_bullets = 3
 
 [node name="Gattling" parent="Body/Guns/Weapons" instance=ExtResource("5_yirpe")]
 transform = Transform3D(1, 0, -5.42101e-20, 0, 1, 0, 5.42101e-20, 0, 1, 0, 0, 0)
@@ -64,7 +66,7 @@ transform = Transform3D(1, 0, -5.42101e-20, 0, 1, 0, 5.42101e-20, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, -5.42101e-20, 0, 1, 0, 5.42101e-20, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.228032, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127921, 0)
 shape = SubResource("CapsuleShape3D_gtwum")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
