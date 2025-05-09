@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://ob3n20lepkdu"]
+[gd_scene load_steps=50 format=4 uid="uid://ob3n20lepkdu"]
 
 [ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_3rsrq"]
 [ext_resource type="Script" uid="uid://bf1dmhwua2m67" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_nprok"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b410rsvjdm1h5" path="res://GameFiles/player/player.tscn" id="7_0skcb"]
 [ext_resource type="Material" uid="uid://bfdnyn3gu81wi" path="res://Assets/textures/bars.tres" id="7_8qyp4"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="8_3b3m2"]
+[ext_resource type="PackedScene" uid="uid://cxgile424tldq" path="res://GameFiles/Levels/level_transition.tscn" id="10_mfivg"]
 
 [sub_resource type="Resource" id="Resource_b28i6"]
 script = ExtResource("5_51n08")
@@ -317,3 +318,6 @@ shape = SubResource("ConvexPolygonShape3D_e4acn")
 [node name="Player" parent="." instance=ExtResource("7_0skcb")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42764, 2.20113, 0.185919)
+
+[node name="LevelTransition" parent="." instance=ExtResource("10_mfivg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.0789, 20.4747, 69.7787)

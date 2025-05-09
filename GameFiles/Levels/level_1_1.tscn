@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://bn3ux4uqgv7ip"]
+[gd_scene load_steps=91 format=4 uid="uid://bn3ux4uqgv7ip"]
 
 [ext_resource type="Script" uid="uid://bf1dmhwua2m67" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_1fvkv"]
 [ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_7y1yp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://dffj6adhk5g2" path="res://Assets/textures/plain-wall.tres" id="5_h8wn8"]
 [ext_resource type="Material" uid="uid://bfdnyn3gu81wi" path="res://Assets/textures/bars.tres" id="5_sw5jc"]
 [ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://GameFiles/Enemies/BaseEnemy.tscn" id="8_hog1k"]
+[ext_resource type="PackedScene" uid="uid://cxgile424tldq" path="res://GameFiles/Levels/level_transition.tscn" id="9_7gu0h"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dioh1"]
 _surfaces = [{
@@ -554,3 +555,7 @@ transform = Transform3D(-0.437642, 0.263789, -0.859584, -0.663211, 0.550824, 0.5
 
 [node name="BaseEnemy" parent="Enemies" instance=ExtResource("8_hog1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0857, 13.5789, -91.3805)
+
+[node name="LevelTransition" parent="." instance=ExtResource("9_7gu0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.619, 13.048, -93.9034)
+level_name = "1_2"

@@ -13,6 +13,11 @@ var inMenu: bool = false;
 func _ready() -> void:
 	get_viewport().focus_entered.connect(on_focus_change)
 	get_viewport().focus_exited.connect(on_focus_change)
+	var existing_menu = get_tree().get_first_node_in_group("Esc Menu");
+	
+	if (existing_menu != null):
+		existing_menu.queue_free();
+	
 	menu.visible = false;
 	add_child(menu);
 
@@ -62,9 +67,10 @@ func process_menu_call() :
 			enemy.set_physics_process(true);
 		
 func restart_level():
+	print("loop de loop")
 	var level = get_tree().get_first_node_in_group("Level")
 	for child in get_tree().root.get_children():
-		if(child != level): child.queue_free();
+		if (child != level): child.queue_free();
 		
 	get_tree().reload_current_scene()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

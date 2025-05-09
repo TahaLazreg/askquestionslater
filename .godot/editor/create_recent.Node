@@ -1,7 +1,7 @@
-RayCast3D
-MeshInstance3D
-Area3D
 CollisionShape3D
+Area3D
+MeshInstance3D
+RayCast3D
 Node3D
 Node
 Label
@@ -12,4 +12,3 @@ Button
 HBoxContainer
 DirectionalLight3D
 Timer
-CharacterBody3D
