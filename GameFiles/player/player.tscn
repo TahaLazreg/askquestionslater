@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b410rsvjdm1h5"]
+[gd_scene load_steps=18 format=3 uid="uid://b410rsvjdm1h5"]
 
 [ext_resource type="Script" uid="uid://c6yfui7xy23n0" path="res://GameFiles/player/quake_character.gd" id="1_dwod5"]
 [ext_resource type="PackedScene" uid="uid://8q0y0jkmlaua" path="res://AssetImports/skeleton.tscn" id="2_sc11j"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cr6qw3wtq27k1" path="res://GameFiles/Guns/tg_teal.tscn" id="4_v4kes"]
 [ext_resource type="PackedScene" uid="uid://cghmqhxgf4o83" path="res://GameFiles/Guns/gattling.tscn" id="5_yirpe"]
 [ext_resource type="Script" uid="uid://bxhhcgxgvb1a6" path="res://GameFiles/player/update_hp_ui.gd" id="7_ixqsd"]
+[ext_resource type="PackedScene" uid="uid://3jhtpskrsi22" path="res://GameFiles/reloadable.tscn" id="8_h85yj"]
+[ext_resource type="Script" uid="uid://ysyd66mwnait" path="res://GameFiles/reloadable_player.gd" id="9_aapu4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sblr3"]
 albedo_color = Color(0.701335, 0.0701286, 0, 1)
@@ -117,6 +119,7 @@ offset_left = -101.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
+text = "5 / 5"
 label_settings = SubResource("LabelSettings_fbqnw")
 language = "English"
 
@@ -127,6 +130,20 @@ offset_bottom = 62.0
 theme_override_font_sizes/font_size = 36
 text = "3 / 3"
 script = ExtResource("7_ixqsd")
+
+[node name="TimerDisplay" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "00:00:00"
+
+[node name="Reloadable" parent="." instance=ExtResource("8_h85yj")]
+script = ExtResource("9_aapu4")
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]

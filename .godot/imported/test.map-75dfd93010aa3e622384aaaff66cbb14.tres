@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_bha8x")
-revision = 3
+revision = 4
 map_data = "// Game: AskQuestionsLater
 // Format: Valve
 // entity 0
