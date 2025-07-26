@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3jhtpskrsi22"]
+
+[ext_resource type="Script" uid="uid://bwv2q5utenr3j" path="res://GameFiles/reloadable.gd" id="1_vb7te"]
+
+[node name="Reloadable" type="Node"]
+script = ExtResource("1_vb7te")

@@ -9,6 +9,7 @@ var menu = preload("res://GameFiles/esc_menu.tscn").instantiate();
 
 var inFocus: bool = true;
 var inMenu: bool = false;
+var isPaused: bool = false;
 
 func _ready() -> void:
 	get_viewport().focus_entered.connect(on_focus_change)
@@ -43,37 +44,44 @@ func _input(event: InputEvent) -> void:
 		
 func process_menu_call() :
 	if (not inMenu):
-		# TODO proper pause
-		%Player.set_physics_process(false);
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		menu.visible = true;
 		inMenu = true;
-		
-		if get_node("Enemies") == null:
-			return
-		for enemy in get_node("Enemies").get_children():
-			enemy.set_physics_process(false);
-			enemy.can_shoot = false;
+		pause_game()
 	else:
-		# TODO proper pause
-		%Player.set_physics_process(true);
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		menu.visible = false;
 		inMenu = false;
-		
-		if get_node("Enemies") == null:
-			return
-		for enemy in get_node("Enemies").get_children():
-			enemy.set_physics_process(true);
+		pause_game()
 		
 func restart_level():
-	print("loop de loop")
-	var level = get_tree().get_first_node_in_group("Level")
-	for child in get_tree().root.get_children():
-		if (child != level): child.queue_free();
-		
-	get_tree().reload_current_scene()
+	
+	var player = %Player
+	var enemies = get_node("Enemies")
+	var pickups = get_node("Pickups")
+	
+	if (player != null):
+		player.get_node("Reloadable").reload()
+
+	if (enemies != null):
+		for enemy in enemies.get_children():
+			enemy.get_node("Reloadable").reload()
+
+	if (pickups != null):
+		for pickup in pickups.get_children():
+			pickup.get_node("Reloadable").reload()
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func pause_game():
+	%Player.set_physics_process(isPaused);
+	%Player.paused = !isPaused;
+	if get_node("Enemies") == null:
+		return
+	for enemy in get_node("Enemies").get_children():
+		enemy.set_physics_process(isPaused);
+		if (!isPaused): enemy.can_shoot = false;
+	isPaused = !isPaused
 
 func exit_game():
 	get_tree().quit()

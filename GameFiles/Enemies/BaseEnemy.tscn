@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcldpre5a6bu0"]
+[gd_scene load_steps=8 format=3 uid="uid://dcldpre5a6bu0"]
 
 [ext_resource type="PackedScene" uid="uid://dv825sqfrbv4x" path="res://GameFiles/health.tscn" id="1_5dgap"]
 [ext_resource type="Script" uid="uid://dnv8m8ng6f467" path="res://GameFiles/Enemies/base_enemy_ai.gd" id="1_68xbx"]
+[ext_resource type="PackedScene" uid="uid://3jhtpskrsi22" path="res://GameFiles/reloadable.tscn" id="3_3mv5w"]
+[ext_resource type="Script" uid="uid://chxvo1hd3xhim" path="res://GameFiles/reloadable_base_enemy.gd" id="4_1140y"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mfiwl"]
 
@@ -35,6 +37,9 @@ curr_hp = 1
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390204, 0)
 target_position = Vector3(0, 0, 15)
+
+[node name="Reloadable" parent="." instance=ExtResource("3_3mv5w")]
+script = ExtResource("4_1140y")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="on_death" from="Health" to="." method="_on_death"]

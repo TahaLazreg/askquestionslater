@@ -19,7 +19,10 @@ var is_shooting = false;
 
 var tilt_limit = deg_to_rad(67)
 
-var no_shoot_frame_one = 1
+var no_shoot_frame_one = true
+
+var curr_level_time = 0;
+var paused = false;
 
 @export_range(0.0, 1.0) var mouse_sens_h := 0.125
 @export_range(0.0, 1.0) var mouse_sens_v := 0.13
@@ -45,19 +48,19 @@ func _input(event: InputEvent) -> void:
 	if (_camera_input_direction.y < DEAD_ZONE and _camera_input_direction.y > -DEAD_ZONE): 
 		_camera_input_direction.y = 0
 
+func _process(delta: float) -> void:
+	if paused: return
+	curr_level_time += delta;
+
 func _physics_process(delta: float) -> void:
-	if (no_shoot_frame_one > 0):
-		no_shoot_frame_one -= 1
+	if (no_shoot_frame_one):
+		no_shoot_frame_one = false
 		return
-	# Camera
-	cam_pivot.rotation.x -= _camera_input_direction.y * delta
-	cam_pivot.rotation.x = clamp(cam_pivot.rotation.x, -tilt_limit, tilt_limit)
-	cam_pivot.rotation.y -= _camera_input_direction.x * delta
-	_camera_input_direction = Vector2.ZERO
 	
-	$Body.rotation.y = cam_pivot.rotation.y + PI
-	#%Guns.rotation.y = cam_pivot.rotation.y + PI
-	%Guns.rotation.x = cam_pivot.rotation.x
+	update_timer()
+	
+	# Camera
+	rotate_camera_body(delta)
 	
 	# Get input
 	var input_dir := Input.get_vector("move_lft", "move_rgt", "move_fwd", "move_bck")
@@ -69,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	curr_movement = curr_movement.normalized()
 	
 	### Movement applied
-	
 	# Friction
 	apply_friction()
 	
@@ -166,3 +168,18 @@ func _on_death() -> void:
 
 func _on_jump_grace_timeout() -> void:
 	jump_inputed = false
+
+func update_timer() -> void:
+	var minutes = str(int(floor(curr_level_time / 60))).lpad(2, '0')
+	var seconds = str(int(floor(curr_level_time - floor(curr_level_time / 60)))).lpad(2, '0')
+	var milsec = str(int((curr_level_time - floor(curr_level_time)) * 1000)).lpad(3, '0')
+	$UI/TimerDisplay.text = minutes + ":" + seconds + ":" + milsec
+
+func rotate_camera_body(delta: float) -> void:
+	cam_pivot.rotation.x -= _camera_input_direction.y * delta
+	cam_pivot.rotation.x = clamp(cam_pivot.rotation.x, -tilt_limit, tilt_limit)
+	cam_pivot.rotation.y -= _camera_input_direction.x * delta
+	_camera_input_direction = Vector2.ZERO
+	
+	$Body.rotation.y = cam_pivot.rotation.y + PI
+	%Guns.rotation.x = cam_pivot.rotation.x

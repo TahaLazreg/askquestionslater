@@ -7,6 +7,7 @@ const bullet = preload("res://GameFiles/Enemies/enemy_bullet.tscn")
 @export var VISION_ANGLE = 60;
 @export var VISION_RANGE = 15;
 var can_shoot = false;
+var is_dead = false;
 
 const RAYCAST_UPDATE_RATE = 6;
 
@@ -30,11 +31,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_death() -> void:
-	queue_free()
-
+	visible = false;
+	can_shoot = false;
+	is_dead = true;
+	
 
 func _on_shoot_timer_timeout() -> void:
-	if !can_shoot or $RayCast3D.is_colliding():
+	if !can_shoot or $RayCast3D.is_colliding() or is_dead:
 		return
 	
 	var bul_inst = bullet.instantiate()
