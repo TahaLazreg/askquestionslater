@@ -4,7 +4,9 @@ extends Node3D
 # * Add a new gun ~
 # * Switching guns ~
 # * Enemies
-
+@export var dialogue_file = "res://GameFiles/Dialogue/EN/test_dialogue.txt"
+@export var unavailable_guns: Array[int] = []
+var play_dialogue = false;
 var menu = preload("res://GameFiles/esc_menu.tscn").instantiate();
 
 var inFocus: bool = true;
@@ -27,6 +29,20 @@ func _ready() -> void:
 	menu.connect("ExitGame", exit_game)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	# Play dialogue if its available
+	var text_box: DialogBox = get_node("TextBox")
+	if (text_box == null):
+		return
+	text_box.connect("RanOutText", pause_game)
+	
+	pause_game()
+	text_box.start_dialogue(dialogue_file)
+	
+	# Block unavailable guns
+	var unavail_gun = unavailable_guns.pop_back()
+	while (unavail_gun != null):
+		%Player/Body/Guns/Weapons.remove_child(%Player/Body/Guns/Weapons.get_child(unavail_gun))
+		unavail_gun = unavailable_guns.pop_back()
 
 func on_focus_change() -> void:
 	if (inMenu):
@@ -43,6 +59,9 @@ func _input(event: InputEvent) -> void:
 		process_menu_call();
 		
 func process_menu_call() :
+	if (isPaused and not inMenu):
+		return;
+	
 	if (not inMenu):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		menu.visible = true;

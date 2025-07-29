@@ -63,6 +63,7 @@ curr_bullets = 3
 
 [node name="Gattling" parent="Body/Guns/Weapons" instance=ExtResource("5_yirpe")]
 transform = Transform3D(1, 0, -5.42101e-20, 0, 1, 0, 5.42101e-20, 0, 1, 0, 0, 0)
+curr_bullets = 30
 
 [node name="TG TEAL" parent="Body/Guns/Weapons" instance=ExtResource("4_v4kes")]
 transform = Transform3D(1, 0, -5.42101e-20, 0, 1, 0, 5.42101e-20, 0, 1, 0, 0, 0)

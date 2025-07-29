@@ -4,10 +4,12 @@ class_name DialogBox
 const BASE_READ_RATE = 0.04;
 
 @onready var name_box = $TextboxContainer/Panel/Textbox/HBoxContainer/VBoxContainer/Name
-@onready var text_box: Label = $TextboxContainer/Panel/Textbox/HBoxContainer/DialogBox
+@onready var text_box: RichTextLabel = $TextboxContainer/Panel/Textbox/HBoxContainer/DialogBox
 @onready var end_box = $TextboxContainer/Panel/Textbox/HBoxContainer/EndText
 
 @onready var container = $TextboxContainer
+
+signal RanOutText;
 
 var tween: Tween = null;
 var elapsed_tween_time = 0;
@@ -24,10 +26,18 @@ enum state {
 var currState : state = state.READY;
 
 func _ready():
+	# start_dialogue();
+	pass
+
+func start_dialogue(text_file):
 	tween = create_tween();
 	tween.connect("finished", on_tween_done);
 	
-	enqueue_text_name("There is no escape.", "Hades")
+	#enqueue_text_name("There is no escape.", "Hades")
+	
+	$DialogueParser.get_text_from_file(text_file)
+	text_q = $DialogueParser.text_q
+	ppl_q = $DialogueParser.ppl_q
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -39,6 +49,8 @@ func _input(event: InputEvent) -> void:
 			state.DONE:
 				hide_textbox();
 				change_to_new_state(state.READY);
+				if (text_q.size() == 0 and ppl_q.size() == 0):
+					RanOutText.emit();
 
 func _process(delta: float) -> void:
 	if (currState == state.READY and !text_q.is_empty()):

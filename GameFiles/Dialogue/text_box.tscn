@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cas7mo1hv4lce"]
+[gd_scene load_steps=5 format=3 uid="uid://cas7mo1hv4lce"]
 
 [ext_resource type="LabelSettings" uid="uid://bajx05h532tfb" path="res://GameFiles/Dialogue/test_dialog_label_settings.tres" id="1_nvsrq"]
 [ext_resource type="Script" uid="uid://d4fq4v1ji7ulf" path="res://GameFiles/Dialogue/text_box.gd" id="1_vp41y"]
+[ext_resource type="Script" uid="uid://cay0p66tk5thk" path="res://GameFiles/Dialogue/dialogue_parser.gd" id="3_nstqs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vp41y"]
 bg_color = Color(0.453372, 0.39047, 0.178892, 0.447059)
@@ -72,15 +73,18 @@ text = "Name"
 label_settings = ExtResource("1_nvsrq")
 horizontal_alignment = 1
 
-[node name="DialogBox" type="Label" parent="TextboxContainer/Panel/Textbox/HBoxContainer"]
+[node name="DialogBox" type="RichTextLabel" parent="TextboxContainer/Panel/Textbox/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+theme_override_font_sizes/bold_italics_font_size = 34
+theme_override_font_sizes/italics_font_size = 34
+theme_override_font_sizes/mono_font_size = 34
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
 text = "This is a placeholder. Fear is the mind killer."
-label_settings = ExtResource("1_nvsrq")
-autowrap_mode = 3
-clip_text = true
+language = "en"
 
 [node name="EndText" type="Label" parent="TextboxContainer/Panel/Textbox/HBoxContainer"]
 layout_mode = 2
@@ -88,3 +92,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "V"
 label_settings = ExtResource("1_nvsrq")
+
+[node name="DialogueParser" type="Node" parent="."]
+script = ExtResource("3_nstqs")

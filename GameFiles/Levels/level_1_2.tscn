@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://bp2shqqgun3lx"]
+[gd_scene load_steps=119 format=4 uid="uid://bp2shqqgun3lx"]
 
 [ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_domps"]
 [ext_resource type="Script" uid="uid://bf1dmhwua2m67" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_j03sm"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b410rsvjdm1h5" path="res://GameFiles/player/player.tscn" id="6_5eajc"]
 [ext_resource type="PackedScene" uid="uid://cnkixmiu52oi8" path="res://GameFiles/Pickups/ammo_pickup.tscn" id="7_j03sm"]
 [ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://GameFiles/Enemies/BaseEnemy.tscn" id="7_v6ret"]
+[ext_resource type="PackedScene" uid="uid://cas7mo1hv4lce" path="res://GameFiles/Dialogue/text_box.tscn" id="10_omj1f"]
+[ext_resource type="PackedScene" uid="uid://cxgile424tldq" path="res://GameFiles/Levels/level_transition.tscn" id="11_h11am"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1n2wm"]
 _surfaces = [{
@@ -370,6 +372,8 @@ points = PackedVector3Array(-107.553, 68.8047, -156.768, -107.874, 68.4714, -157
 
 [node name="Level1-2" type="Node3D" groups=["Level"]]
 script = ExtResource("1_domps")
+dialogue_file = "res://GameFiles/Dialogue/EN/level1_2.txt"
+unavailable_guns = Array[int]([1, 2])
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_j03sm")
@@ -739,3 +743,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65591, 25.2979, -104.404)
 
 [node name="AmmoPickup2" parent="Pickups" instance=ExtResource("7_j03sm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84179, 6.74337, -28.3686)
+
+[node name="TextBox" parent="." instance=ExtResource("10_omj1f")]
+
+[node name="LevelTransition" parent="." instance=ExtResource("11_h11am")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.181, 64.9296, -160.59)
+level_name = "res://GameFiles/Levels/TempEndScreen.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bn3ux4uqgv7ip"]
+[gd_scene load_steps=92 format=4 uid="uid://bn3ux4uqgv7ip"]
 
 [ext_resource type="Script" uid="uid://bf1dmhwua2m67" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_1fvkv"]
 [ext_resource type="Script" uid="uid://bl0xtowbq6fkx" path="res://GameFiles/Levels/level.gd" id="1_7y1yp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://bfdnyn3gu81wi" path="res://Assets/textures/bars.tres" id="5_sw5jc"]
 [ext_resource type="PackedScene" uid="uid://dcldpre5a6bu0" path="res://GameFiles/Enemies/BaseEnemy.tscn" id="8_hog1k"]
 [ext_resource type="PackedScene" uid="uid://cxgile424tldq" path="res://GameFiles/Levels/level_transition.tscn" id="9_7gu0h"]
+[ext_resource type="PackedScene" uid="uid://cas7mo1hv4lce" path="res://GameFiles/Dialogue/text_box.tscn" id="10_7f82q"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dioh1"]
 _surfaces = [{
@@ -292,6 +293,8 @@ points = PackedVector3Array(205.5, 21.4091, -94.9545, 205.5, 16.5, -95.5, 207, 1
 
 [node name="Level1-1" type="Node3D" groups=["Level"]]
 script = ExtResource("1_7y1yp")
+dialogue_file = "res://GameFiles/Dialogue/EN/level1_1.txt"
+unavailable_guns = Array[int]([0, 1, 2])
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_1fvkv")
@@ -558,4 +561,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0857, 13.5789, -91.3805)
 
 [node name="LevelTransition" parent="." instance=ExtResource("9_7gu0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.619, 13.048, -93.9034)
-level_name = "1_2"
+level_name = "res://GameFiles/Levels/level_1_2.tscn"
+
+[node name="TextBox" parent="." instance=ExtResource("10_7f82q")]

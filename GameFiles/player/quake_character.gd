@@ -116,30 +116,34 @@ func _physics_process(delta: float) -> void:
 	# Movement - Literally just a copy paste from quake lmao
 	velocity = velocity + add_speed * curr_movement;
 	
-	# Choose next for prev gun
-	if Input.is_action_just_released("next_gun"):
-		curr_gun += 1
-		curr_gun %= %Guns/Weapons.get_child_count()
+	# If no guns, just hide UI
+	if ($Body/Guns/Weapons.get_child_count() != 0):
+		# Choose next for prev gun
+		if Input.is_action_just_released("next_gun"):
+			curr_gun += 1
+			curr_gun %= $Body/Guns/Weapons.get_child_count()
+			
+		if Input.is_action_just_released("prev_gun"):
+			curr_gun -= 1
+			if (curr_gun < 0):
+				curr_gun = $Body/Guns/Weapons.get_child_count() - 1
 		
-	if Input.is_action_just_released("prev_gun"):
-		curr_gun -= 1
-		if (curr_gun < 0):
-			curr_gun = %Guns/Weapons.get_child_count() - 1
-	
-	# TODO should we be able to shoot backwards?
-	if Input.is_action_just_pressed("shoot") or Input.is_action_just_pressed("shoot_back"):
-		is_shooting = true
+		# TODO should we be able to shoot backwards?
+		if Input.is_action_just_pressed("shoot") or Input.is_action_just_pressed("shoot_back"):
+			is_shooting = true
 
-	if not (Input.is_action_pressed("shoot") or Input.is_action_pressed("shoot_back")):
-		is_shooting = false
-	
-	if is_shooting and Input.is_action_pressed("shoot"):
-		%Guns/Weapons.get_child(curr_gun).process_shot(self, forward, false);
-	elif is_shooting and Input.is_action_pressed("shoot_back"):
-		%Guns/Weapons.get_child(curr_gun).process_shot(self, forward, true);
+		if not (Input.is_action_pressed("shoot") or Input.is_action_pressed("shoot_back")):
+			is_shooting = false
 		
-	
-	$UI.get_node("BulletCounter").text = str(%Guns/Weapons.get_child(curr_gun).curr_bullets) + " / " + str(%Guns/Weapons.get_child(curr_gun).max_bullets)
+		if is_shooting and Input.is_action_pressed("shoot"):
+			$Body/Guns/Weapons.get_child(curr_gun).process_shot(self, forward, false);
+		elif is_shooting and Input.is_action_pressed("shoot_back"):
+			$Body/Guns/Weapons.get_child(curr_gun).process_shot(self, forward, true);
+			
+		$UI.get_node("BulletCounter").visible = true;
+		$UI.get_node("BulletCounter").text = str($Body/Guns/Weapons.get_child(curr_gun).curr_bullets) + " / " + str($Body/Guns/Weapons.get_child(curr_gun).max_bullets)
+	else:
+		$UI.get_node("BulletCounter").visible = false;
 	
 	move_and_slide()
 

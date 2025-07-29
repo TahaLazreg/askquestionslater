@@ -1,0 +1,1 @@
+* Dead enemies still have a hitbox

@@ -1,0 +1,7 @@
+Ayoub&[b][shake rate=20.0 level=3 connected=1]Hello?[/shake][/b] you okay down there?
+Margot&[b][shake rate=20.0 level=3 connected=1]Yeah![/shake][/b] I've got the gun, it looks exactly like the pictures.
+Sophia&Did you break anything?
+Ayoub&There seems to have been a proper rumble, some sort of trap that malfunctioned. The entrance almost got blocked. We'll meet you outside. 
+Margot&Guys, there is a guard running straight at me with a sling, what do I do?
+Ayoub&Well, looks like this is your moment habibi.
+Ayoub&[wave amp=50.0 freq=5.0 connected=1 ease=-0.5]Shoot him~[/wave]

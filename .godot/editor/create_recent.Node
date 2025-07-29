@@ -1,6 +1,11 @@
-Timer
+TextureRect
 Label
+Control
 Node
+CanvasLayer
+DialogBox
+RichTextLabel
+Timer
 CollisionShape3D
 Area3D
 MeshInstance3D
@@ -8,7 +13,3 @@ RayCast3D
 Node3D
 FuncGodotMap
 Marker3D
-VBoxContainer
-Button
-HBoxContainer
-DirectionalLight3D
